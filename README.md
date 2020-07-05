@@ -1,11 +1,19 @@
 # Naive-Bayes-Classifier-from-Scratch
-Implementation of the Naive Bayes algorithm, with various improvements, from scratch in Python to classify text abstracts.
+Implementation of the Naive Bayes algorithm, with various improvements, from scratch in Python to classify text abstracts. Note that the standard Naive Bayes algorithm is outlined in Mitchell's "Machine Learning." 
 
 ## Data
 The trg.csv and tst.csv are the training and test datasets respectively. These files contain the abstracts of research papers on the topic of proteins found in one of four classes - Archaea (A), Bacteria (B), Eukaryota (E) or Virus (V).
 
 ## Getting Started
 To classify the abstracts, run main.py. An output file will be generated (called output.csv), which will contain the generated classifications for the abstracts in tst.csv. Note that the test accuracy for this classifier is 92.6%.
+
+## Built With
+* VS Code
+* Python
+* Excel
+
+## Authors
+Kelvin Zhou, Derek Long
 
 ## Details on implementation and improvement
 To start, the text data was represented by frequencies of each word in each abstract – the attributes were the number of times each word occurs in each abstract. The Multinomial naïve Bayes classifier was used since the attributes were frequencies instead of categories. To train this classifier, the following formula was used:
