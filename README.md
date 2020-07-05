@@ -16,6 +16,7 @@ To classify the abstracts, run main.py. An output file will be generated (called
 Kelvin Zhou, Derek Long
 
 ## Details on implementation and improvement
+### Multinominal Naïve Bayes
 To start, the text data was represented by frequencies of each word in each abstract – the attributes were the number of times each word occurs in each abstract. The Multinomial naïve Bayes classifier was used since the attributes were frequencies instead of categories. To train this classifier, the following formula was used:
 
 
@@ -23,8 +24,10 @@ To start, the text data was represented by frequencies of each word in each abst
 
 where *p(k,i)* is the probability of the word *i* given class *k*, *N(k,i)* is the number of times word *i* appears in class *k* in the training set, *N(k)* is the total number of words from class *k*, pseudocount *a(i)* is 1 and *a* is the sum of all *a(i)*. The pseudocount acts as a Laplace Smoother to ensure the denominator is never zero, which would have resulted in an error.
 
+### Preprocessing
 The data also needed to be pre-processed. To do this, any data that could have been potentially irrelevant or noisy was removed. This included the punctuation from all abstracts and words shorter than three characters, as well as any ‘words’ with numeric characters. Several stop words, which are commonly used words, were also removed as they are likely unimportant and will probably not improve the classifier accuracy. 
 
+### Inverse document frequency
 To extend the naïve Bayes implementation, the inverse document frequency was used to train the classifier instead of the term frequency. The inverse document frequency for a document frequency *df(i,j)* = number of times word *i* appears in document *j*, is given by the following:
 
 
@@ -32,4 +35,5 @@ To extend the naïve Bayes implementation, the inverse document frequency was us
 
 where *t(ik)* is 1 if word *i* appears in training instance *k* and zero otherwise.
 
+### Cross validation
 To calculate and affirm the accuracy of the classifier, 10-fold cross-validation was used. This was done by first shuffling the training dataset and partitioning it into 10 groups – the partitioning was done manually. Next, the partitions were iterated over using each as the test set and combining the rest as the training set. Prior to the inverse document frequency extension, the overall average accuracy of the classifier was found to be 92.04%. After the extension, the overall average accuracy of the classifier increased to 93.54%.
