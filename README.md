@@ -13,7 +13,7 @@ To classify the abstracts, run main.py. An output file will be generated (called
 * Excel
 
 ## Authors
-Kelvin Zhou, Derek Long
+Derek Long
 
 ## Details on implementation and improvement
 ### Multinominal Naïve Bayes
